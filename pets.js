@@ -1,29 +1,4 @@
-// const fs = require('fs');
-
-// let option = process.argv[2]
-// let index = process.argv[3]
-// let age = process.argv[3]
-
-
-// fs.readFile("pets.json", 'utf-8',(error,data)=> {
-//     let pets = JSON.parse(data)
-    
-//     if (!option) {
-//             console.error('Usage: node pets.js [read | create | update | destroy]');
-//             process.exit(1);
-//         } else if(option === 'read'){
-//             if (index=== undefined){
-//                 console.error('Usage: node pets.js read INDEX')
-//                 process.exit(1)
-//             } else if (index < 0 || index >= pets.length){
-//                 console.error('Usage: node pets.js read INDEX')
-//             } else console.log(pets[index])
-//         } else 
-//         } else {
-//             console.log(pets);
-//         }
-//     }
-// })
+/
 const fs = require('fs');
 
 // Check if the command-line arguments are valid
