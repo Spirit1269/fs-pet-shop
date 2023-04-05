@@ -22,3 +22,29 @@ app.get('/pets/:petID', (req, res) => {
     }
 })
 })
+app.post('/pets', (req, res) => {
+    // Assuming the request body contains JSON data for the new pet:
+    const newPet = req.body;
+  
+    fs.readFile('pets.json', 'utf-8', (err, data) => {
+      if (err) {
+        res.status(500).send('Error reading pets database');
+        return;
+      }
+  
+      const pets = JSON.parse(data);
+      const newPetId = pets.length + 1; // Assign a new ID to the pet
+  
+      // Add the new pet to the database
+      pets.push({ id: newPetId, ...newPet });
+      fs.writeFile('pets.json', JSON.stringify(pets), (err) => {
+        if (err) {
+          res.status(500).send('Error writing pets database');
+          return;
+        }
+  
+        res.status(201).json({ id: newPetId, ...newPet });
+      });
+    });
+  });
+  
